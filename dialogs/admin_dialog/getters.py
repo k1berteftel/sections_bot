@@ -68,7 +68,7 @@ async def get_users_txt(clb: CallbackQuery, widget: Button, dialog_manager: Dial
         )
     columns.insert(0, ['Никнейм', 'Юзернейм', 'Впервые запустил бота', 'Дата последней активности'])
     table = get_table(columns, 'Пользователи')
-    await clb.message.answer_document(document=table)
+    await clb.message.answer_document(document=FSInputFile(path=table))
     try:
         os.remove(table)
     except Exception:
